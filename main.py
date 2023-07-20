@@ -13,7 +13,8 @@ class CalculatorApp(App):
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['.', '0', 'C', '+'],
-            ['sin', 'cos', 'tan', 'log']
+            ['sin', 'cos', 'tan', 'log'],
+            ['=']
         ]
 
         layout = BoxLayout(orientation='vertical')
