@@ -9,12 +9,12 @@ class CalculatorApp(App):
     def build(self):
         self.expression = TextInput(font_size=40, multiline=False, readonly=True, halign='right')
         buttons = [
+            ['sin', 'cos', 'tan', 'log'],
             ['7', '8', '9', '/'],
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['.', '0', 'C', '+'],
-            ['sin', 'cos', 'tan', 'log'],
-            ['=']
+            ['=','(',')'],
         ]
 
         layout = BoxLayout(orientation='vertical')
@@ -42,31 +42,37 @@ class CalculatorApp(App):
                 self.expression.text = result
             except Exception as e:
                 self.expression.text = 'Erro'
+
         elif button_text == 'sin':
             try:
                 radian = radians(float(current_text))
                 self.expression.text = str(sin(radian))
             except Exception as e:
                 self.expression.text = 'Erro'
+
         elif button_text == 'cos':
             try:
                 radian = radians(float(current_text))
                 self.expression.text = str(cos(radian))
             except Exception as e:
                 self.expression.text = 'Erro'
+
         elif button_text == 'tan':
             try:
                 radian = radians(float(current_text))
                 self.expression.text = str(tan(radian))
             except Exception as e:
                 self.expression.text = 'Erro'
+
         elif button_text == 'log':
             try:
                 self.expression.text = str(log10(float(current_text)))
             except Exception as e:
                 self.expression.text = 'Erro'
+
         else:
             self.expression.text += button_text
+
 
 if __name__ == '__main__':
     CalculatorApp().run()
